@@ -1,0 +1,21 @@
+- name: variables
+  hosts: local
+  connection: local
+  vars: # play level variables
+    greet: "PLAY"
+  vars_files:
+  - separate_vars.yaml
+  vars_prompt:
+  - name: greet
+    prompt: enter the value
+    private: false
+  tasks:
+  - name: print the variables
+    vars: # task level vars
+      course: Ansible
+    ansible.builtin.debug:
+      msg: "course is {{ course }}, duration is {{ duration }}, trainer is {{ trainer }}"
+
+  - name: print the variables1
+    ansible.builtin.debug:
+      msg: "course is {{ course }}, duration is {{ duration }}, trainer is {{ trainer }}"
