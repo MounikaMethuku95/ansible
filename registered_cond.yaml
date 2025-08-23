@@ -3,11 +3,11 @@
   tasks:
   - name: check if the file exists
     ansible.builtin.stat:   #module is a core Ansible module used to retrieve information about files and directories on remote hosts.
-      path: /ansible/sample.txt
+      path: /tmp/sample.txt
     register: file_status
 
   - name: create file if it doesn't exists
     ansible.builtin.file:  #module is a core module in Ansible designed to manage files and directories on remote systems. It allows users to control various aspects of file system objects, including their existence, type (file, directory, link), permissions, ownership, and timestamps. 
-      path: /ansible/sample.txt
+      path: /tmp/sample.txt
       state: touch
     when: not file_status.stat.exists  #exists is a conditional statement used in Ansible playbooks. It instructs Ansible to execute a specific task only when the file or directory referenced by file_status does not exist.
