@@ -11,3 +11,19 @@
       path: /tmp/sample.txt
       state: touch
     when: not file_status.stat.exists  #exists is a conditional statement used in Ansible playbooks. It instructs Ansible to execute a specific task only when the file or directory referenced by file_status does not exist.
+
+#output after execution:
+
+# PLAY [using registered condition] ******************************************************************
+
+# TASK [Gathering Facts] *****************************************************************************
+# ok: [172.31.94.70]
+
+# TASK [check if the file exists] ********************************************************************
+# ok: [172.31.94.70]
+
+# TASK [create file if it doesn't exists] ************************************************************
+# changed: [172.31.94.70]
+
+# PLAY RECAP *****************************************************************************************
+# 172.31.94.70               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
