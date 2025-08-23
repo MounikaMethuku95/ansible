@@ -8,3 +8,23 @@
       path: /tmp/my_file.txt
       state: touch  
     when: create_file
+
+# output after execution
+
+# [ ec2-user@ip-172-31-91-115 ~/ansible ]$ ansible-playbook -i inventory.ini declared-vars_cond.yaml
+
+# PLAY [using declared variables] ********************************************************************
+
+# TASK [Gathering Facts] *****************************************************************************
+# fatal: [172.31.91.115]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.31.91.115' (ECDSA) to the list of known hosts.\r\nec2-user@172.31.91.115: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+# fatal: [localhost]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.\r\nec2-user@localhost: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+# ok: [172.31.94.70]
+
+# TASK [create file if variable is true] *************************************************************
+# changed: [172.31.94.70]
+
+# PLAY RECAP *****************************************************************************************
+# 172.31.91.115              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+# 172.31.94.70               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+# localhost                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
