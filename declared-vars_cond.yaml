@@ -1,0 +1,10 @@
+- name: using declared variables
+  hosts: all
+  vars:
+    create_file: true
+  tasks:
+  - name: create file if variable is true
+    ansible.builtin.file:
+      path: /tmp/my_file.txt
+      state: touch  
+    when: create_file
