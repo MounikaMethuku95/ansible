@@ -3,7 +3,7 @@
   connection: local
   tasks:
   - name: check if the file exists
-    anisble.builtin.stat:   #module is a core Ansible module used to retrieve information about files and directories on remote hosts.
+    ansible.builtin.stat:   #module is a core Ansible module used to retrieve information about files and directories on remote hosts.
       path: /ansible/sample.txt
     register: file_status
 
