@@ -1,6 +1,5 @@
 - name: using registered condition #capture the result of a previous condition using register and use that var in a when condition for a subsequent task
-  hosts: local
-  connection: local
+  hosts: web
   tasks:
   - name: check if the file exists
     ansible.builtin.stat:   #module is a core Ansible module used to retrieve information about files and directories on remote hosts.
