@@ -71,5 +71,12 @@
 #     "msg": "Hello MOUNIKA"
 # }
 
+  - name: print min and max
+    vars:
+      numbers: [1,20,34,45,6,8,100]
+    ansible.builtin.debug:
+      msg: "Min is: {{ numbers | min }}, Max is: {{ numbers | max }}"
+
+
 
 
