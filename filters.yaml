@@ -91,3 +91,12 @@
       - "255.255.255.255"
     ansible.builtin.debug:
       msg: "{{ ip | ansible.utils.ipaddr }}"
+
+#  output for above code:
+#  TASK [check if an ip address is valid or not] **********************************
+# ok: [localhost] => {
+#     "msg": [
+#         "255.255.255.255"
+#     ]
+# }
+
