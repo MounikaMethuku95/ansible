@@ -1,0 +1,8 @@
+- name: filters
+  hosts: local
+  connection: local
+  tasks: 
+  - name: handle undefined vars
+    ansible.builtin.debug:
+      # msg: " hello {{ person }}" this gives an error as the word 'person' is not defined anywhere.
+      msg: "hello {{ person | default('Mounika') }}" # this solves the above error when we provide a default value
