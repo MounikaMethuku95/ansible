@@ -59,3 +59,17 @@
       name: "mounika"
     ansible.builtin.debug:
       msg: "Hello {{ name | upper }}"
+
+# output for above two blocks:
+# TASK [convert upper into lower] ********************************************************************
+# ok: [localhost] => {
+#     "msg": "Hello mounika"
+# }
+
+# TASK [convert lower into upper] ********************************************************************
+# ok: [localhost] => {
+#     "msg": "Hello MOUNIKA"
+# }
+
+
+
