@@ -14,3 +14,24 @@
     - { name: 'git', state: 'present'}
     - { name: 'gcc', state: 'present'}
   
+# output after execution:
+
+# ]$ ansible-playbook -i inventory.ini 01-loops.yaml
+
+# PLAY [install or delete packages] ******************************************************************
+
+# TASK [Gathering Facts] *****************************************************************************
+# ok: [172.31.95.28]
+
+# TASK [install or delete packages using loops] ******************************************************
+# changed: [172.31.95.28] => (item={'name': 'git', 'state': 'absent'})
+# changed: [172.31.95.28] => (item={'name': 'gcc', 'state': 'absent'})
+# ok: [172.31.95.28] => (item={'name': 'mysql', 'state': 'present'})
+# ok: [172.31.95.28] => (item={'name': 'zip', 'state': 'present'})
+# changed: [172.31.95.28] => (item={'name': 'git', 'state': 'present'})
+# changed: [172.31.95.28] => (item={'name': 'gcc', 'state': 'present'})
+
+# PLAY RECAP *****************************************************************************************
+# 172.31.95.28               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
