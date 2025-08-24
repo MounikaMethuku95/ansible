@@ -13,6 +13,11 @@
     ansible.builtin.debug:
       msg: "Fruits are: {{ fruits | split(',') }}"
 
+#   output for above task:
+#   TASK [convert strings into list] *******************************************************************
+# ok: [localhost] => {
+#     "msg": "Fruits are: ['apple', 'banana', 'orange']"
+
   - name: convert map into list
     vars:
       course: 
@@ -22,6 +27,12 @@
     ansible.builtin.debug:
       msg: "course info: {{ course | dict2items }}"
 
+# output for above conversion:
+# TASK [convert map into list] ***********************************************************************
+# ok: [localhost] => {
+#     "msg": "course info: [{'key': 'name', 'value': 'ansible'}, {'key': 'duration', 'value': '120hrs'}, {'key': 'trainer', 'value': 'sivakumar'}]"
+# }
+
   - name: convert list into map
     vars:
       course:
@@ -30,3 +41,21 @@
       - {'key': 'trainer', 'value': 'sivakumar'}
     ansible.builtin.debug:
       msg: "course info {{ course | items2dict }}"
+
+# output for above conversion:
+# TASK [convert list into map] ***********************************************************************
+# ok: [localhost] => {
+#     "msg": "course info {'name': 'ansible', 'duration': '120hrs', 'trainer': 'sivakumar'}"
+# }
+
+  - name: convert upper into lower
+    vars:
+      name: "MOUNIKA"
+    ansible.builtin.debug:
+      msg: "Hello {{ name | lower }}"
+
+  - name: convert lower into upper
+    vars:
+      name: "mounika"
+    ansible.builtin.debug:
+      msg: "Hello {{ name | upper }}"
