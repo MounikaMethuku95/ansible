@@ -1,0 +1,16 @@
+#what if a module is not available?
+
+# ansible.builtin.shell vs. ansible.builtin.command
+# shell--> it is like you are logging inside the server and executing a command and we can access variables, we can use redirections(<,>) and we can also use pipes.
+# command --> like ssh ec2-user@IP command. They dont have access to everything. This like running commands from outside( like outsiders doesnt have access to our home). NO redirections, no pipes, no access to vars on the servers.
+# --> which is secure? command module. as outsiders can not our servers.
+
+- name: shell vs. command
+  hosts: local
+  connection: local
+  tasks:
+  - name: execute ls command
+    ansible.builtin.command: ls -ltr > /tmp/output.txt
+
+  - name: execute ls on shell
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt
