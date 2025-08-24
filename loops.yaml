@@ -1,0 +1,22 @@
+- name: loops
+  hosts: web
+  become: yes
+  tasks:
+  - name: print a message using loops
+    ansible.builtin.debug:
+      msg: "Hello {{ item }}"
+    loop:
+    - Mounika
+    - vamsi
+    - Laasritha
+    - Neeksha
+
+  - name: install packages
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: installed
+    loop:
+    - gcc
+    - mysql
+    - zip
+    - git
