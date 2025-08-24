@@ -14,4 +14,17 @@
   - name: execute ls command on shell
     ansible.builtin.shell: ls -ltr > /tmp/output.txt
 
-    
+# output:
+# PLAY [shell vs. command] *************************************************************************
+
+# TASK [Gathering Facts] ***************************************************************************
+# ok: [localhost]
+
+# TASK [execute ls command] ************************************************************************
+# changed: [localhost]
+
+# TASK [execute ls command on shell] ***************************************************************
+# changed: [localhost]
+
+# PLAY RECAP ***************************************************************************************
+# localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
