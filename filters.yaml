@@ -77,6 +77,17 @@
     ansible.builtin.debug:
       msg: "Min is: {{ numbers | min }}, Max is: {{ numbers | max }}"
 
+# output for min and max:
 
+# TASK [print min and max] ***************************************************************************
+# ok: [localhost] => {
+#     "msg": "Min is: 1, Max is: 100"
+# }
 
-
+  - name: check if an ip address is valid or not
+    vars:
+      ip:
+      - "2566.255.245.0"
+      - "255.255.255.255"
+    ansible.builtin.debug:
+      msg: "{{ ip | ansible.utils.ipaddr }}"
