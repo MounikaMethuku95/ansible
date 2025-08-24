@@ -20,3 +20,36 @@
     - mysql
     - zip
     - git
+
+# output after execution
+
+# $ ansible-playbook -i inventory.ini loops.yaml
+
+# PLAY [loops] ***************************************************************************************
+
+# TASK [Gathering Facts] *****************************************************************************
+# ok: [172.31.95.28]
+
+# TASK [print a message using loops] *****************************************************************
+# ok: [172.31.95.28] => (item=Mounika) => {
+#     "msg": "Hello Mounika"
+# }
+# ok: [172.31.95.28] => (item=vamsi) => {
+#     "msg": "Hello vamsi"
+# }
+# ok: [172.31.95.28] => (item=Laasritha) => {
+#     "msg": "Hello Laasritha"
+# }
+# ok: [172.31.95.28] => (item=Neeksha) => {
+#     "msg": "Hello Neeksha"
+# }
+
+# TASK [install packages] ****************************************************************************
+# ok: [172.31.95.28] => (item=gcc)
+# changed: [172.31.95.28] => (item=mysql)
+# changed: [172.31.95.28] => (item=zip)
+# ok: [172.31.95.28] => (item=git)
+
+# PLAY RECAP *****************************************************************************************
+# 172.31.95.28               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
