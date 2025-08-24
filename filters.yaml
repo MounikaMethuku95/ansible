@@ -6,3 +6,9 @@
     ansible.builtin.debug:
       # msg: " hello {{ person }}" this gives an error as the word 'person' is not defined anywhere.
       msg: "hello {{ person | default('Mounika') }}" # this solves the above error when we provide a default value
+
+  - name: convert strings into list
+    vars:
+      fruits: "apple,banana,orange" #string
+    ansible.builtin.debug:
+      msg: "Fruits are: {{ fruits | split(',') }}"
