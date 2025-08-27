@@ -49,6 +49,8 @@
 # }
 
   - name: convert upper into lower
+    tags:
+    - uppertolower
     vars:
       name: "MOUNIKA"
     ansible.builtin.debug:
@@ -78,7 +80,6 @@
       msg: "Min is: {{ numbers | min }}, Max is: {{ numbers | max }}"
 
 # output for min and max:
-
 # TASK [print min and max] ***************************************************************************
 # ok: [localhost] => {
 #     "msg": "Min is: 1, Max is: 100"
